@@ -24,6 +24,7 @@ from discord import app_commands
 PREFIX = os.environ['PREFIX']
 TOKEN = os.environ['TOKEN']
 
+
 class aclient(discord.Client):
     def __init__(self):
         super().__init__(intents= discord.Intents.default())
@@ -41,7 +42,16 @@ class aclient(discord.Client):
 
 client = aclient()
 tree =  app_commands.CommandTree(client)
+server = JavaServer.lookup("mineplanet.kr")
 
+@tree.command(name='서버상태',description='마인플래닛의 정보를 알려줍니다.') #서버 상태 확인
+async def 서버상태(interaction: discord.Interaction):
+    try:                
+        status = server.status()
+        await interaction.response.send_message(f"서버상태\n접속자: {status.players.online} player(s)\n핑: {round(status.latency)} ms")
+        
+    except:
+        await interaction.response.send_message("서버에 접속할 수 없습니다.")
 
 @tree.command(name = '경고', description='유저에게 경고를 부여합니다.')
 @commands.has_role("L")
@@ -221,7 +231,7 @@ async def warning(interaction: discord.Interaction, 유저: discord.Member, 사�
     await user.send(embed=embed)
 
         
-@tree.command(name='안녕',description='헝그리 봇과 인사해보세요!')
+@tree.command(name='안녕',description='BOT_L과 인사해보세요!')
 async def slash2(interaction: discord.Interaction):
     await interaction.response.send_message("안녕하세요!")
     
