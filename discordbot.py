@@ -21,7 +21,7 @@ from mcstatus import JavaServer
 from discord import app_commands
 
 
-PREFIX = os.environ['PREFIX']
+#PREFIX = os.environ['PREFIX']
 TOKEN = os.environ['TOKEN']
 
 
