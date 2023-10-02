@@ -36,9 +36,9 @@ class aclient(discord.Client):
             await tree.sync()
             self.synced = True
         print(f'{self.user}으로 로그인 하였습니다.')
-        game =  discord.Game('업데이트 진행 중')
+        game =  discord.Game('Mineplanet.kr')
         
-        await self.change_presence(status=discord.Status.do_not_disturb, activity=game)
+        await self.change_presence(status=discord.Status.online, activity=game)
 
 client = aclient()
 tree =  app_commands.CommandTree(client)
