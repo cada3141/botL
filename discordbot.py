@@ -90,7 +90,7 @@ async def warning(interaction: discord.Interaction, 유저: discord.Member, reas
         channel = await client.fetch_channel("{}".format(1157378569924771920))
         await channel.send(embed=embed)
 
-        embed=discord.Embed(title="경고", description="The_L에서 경고를 1회 부여받았습니다.".format(유저.id), color=0xFB3B3B)
+        embed=discord.Embed(title="경고", description="설백에서 경고를 1회 부여받았습니다.".format(유저.id), color=0xFB3B3B)
         embed.add_field(name="사유: {}".format(reason), value="누적 경고: {}\n처리자: <@{}>".format(userinfo[2]+1,interaction.user.id), inline=False)
         user = await client.fetch_user("{}".format(유저.id))
         await user.send(embed=embed)
@@ -114,7 +114,7 @@ async def warning(interaction: discord.Interaction, 유저: discord.Member):
         channel = await client.fetch_channel("{}".format(1157378569924771920))
         await channel.send("<@{}>님의 경고가 초기화 되었습니다.".format(유저.id))
         
-        embed=discord.Embed(title="경고 초기화", description="The_L에서의 경고가 초기화 되었습니다.\n처리자: <@{}>".format(유저.id,interaction.user.id), color=0x68FB0E)
+        embed=discord.Embed(title="경고 초기화", description="설백에서의 경고가 초기화 되었습니다.\n처리자: <@{}>".format(유저.id,interaction.user.id), color=0x68FB0E)
         user = await client.fetch_user("{}".format(유저.id))
         await user.send(embed=embed)
         conn.close()
@@ -180,7 +180,7 @@ async def warning(interaction: discord.Interaction, 유저: discord.Member, 차�
                 channel = await client.fetch_channel("{}".format(1157378569924771920))
                 await channel.send(embed=embed)
 
-                embed=discord.Embed(title="경고", description="The_L에서 경고가 {}회 차감되었습니다.".format(차감횟수), color=0xE7FB00)
+                embed=discord.Embed(title="경고", description="설백에서 경고가 {}회 차감되었습니다.".format(차감횟수), color=0xE7FB00)
                 print(차감횟수)
                 embed.add_field(name="최근 경고 사유: {}".format(userinfo[1]), value="누적 경고: {}\n처리자: <@{}>".format(userinfo[2]-차감횟수,interaction.user.id), inline=False)
                 user = await client.fetch_user("{}".format(유저.id))
@@ -218,7 +218,7 @@ async def warning(interaction: discord.Interaction, 유저: discord.Member, 사�
         await interaction.guild.kick(유저, reason=사유)
         await interaction.response.send_message("<@{}>님이 서버에서 추방되었습니다.\n사유:{}".format(유저.id, 사유),ephemeral=True)
         
-        embed=discord.Embed(title="추방", description="당신은 The_L에서 추방되었습니다.".format(유저.id), color=0xFB3B3B)
+        embed=discord.Embed(title="추방", description="당신은 설백에서 추방되었습니다.".format(유저.id), color=0xFB3B3B)
         embed.add_field(name="사유: {}".format(사유), inline=False)
         user = await client.fetch_user("{}".format(유저.id))
         await user.send(embed=embed)
@@ -231,7 +231,7 @@ async def warning(interaction: discord.Interaction, 유저: discord.Member, 사�
         await interaction.guild.ban(유저, reason=사유)
         await interaction.response.send_message("<@{}>님이 서버에서 차단되었습니다.\n사유:{}".format(유저.id, 사유),ephemeral=True)
 
-        embed=discord.Embed(title="차단", description="당신은 The_L에서 차단되었습니다.".format(유저.id), color=0xFB3B3B)
+        embed=discord.Embed(title="차단", description="당신은 설백에서 차단되었습니다.".format(유저.id), color=0xFB3B3B)
         embed.add_field(name="사유: {}".format(사유), inline=False)
         user = await client.fetch_user("{}".format(유저.id))
         await user.send(embed=embed)
