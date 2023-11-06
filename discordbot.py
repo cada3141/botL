@@ -87,7 +87,7 @@ async def warning(interaction: discord.Interaction, 유저: discord.Member, reas
         embed.add_field(name="사유: {}".format(reason), value="누적 경고: {}\n처리자: <@{}>".format(userinfo[2]+1,interaction.user.id), inline=False)
         
         await interaction.response.send_message(embed=embed,ephemeral=True)
-        channel = await client.fetch_channel("{}".format(1157378569924771920))
+        channel = await client.fetch_channel("{}".format(1171070937928581223))
         await channel.send(embed=embed)
 
         embed=discord.Embed(title="경고", description="설백에서 경고를 1회 부여받았습니다.".format(유저.id), color=0xFB3B3B)
@@ -111,7 +111,7 @@ async def warning(interaction: discord.Interaction, 유저: discord.Member):
         cur.execute(sql, str(유저.id))
         conn.commit()
         await interaction.response.send_message("<@{}>님의 경고가 초기화 되었습니다.\n처리자: <@{}>".format(유저.id,interaction.user.id),ephemeral=True)
-        channel = await client.fetch_channel("{}".format(1157378569924771920))
+        channel = await client.fetch_channel("{}".format(1171070937928581223))
         await channel.send("<@{}>님의 경고가 초기화 되었습니다.".format(유저.id))
         
         embed=discord.Embed(title="경고 초기화", description="설백에서의 경고가 초기화 되었습니다.\n처리자: <@{}>".format(유저.id,interaction.user.id), color=0x68FB0E)
@@ -177,7 +177,7 @@ async def warning(interaction: discord.Interaction, 유저: discord.Member, 차�
                 embed.add_field(name="최근 경고 사유: {}".format(userinfo[1]), value="누적 경고: {}\n처리자: <@{}>".format(userinfo[2]-차감횟수,interaction.user.id), inline=False)
                 print(차감횟수)
                 await interaction.response.send_message(embed=embed,ephemeral=True)
-                channel = await client.fetch_channel("{}".format(1157378569924771920))
+                channel = await client.fetch_channel("{}".format(1171070937928581223))
                 await channel.send(embed=embed)
 
                 embed=discord.Embed(title="경고", description="설백에서 경고가 {}회 차감되었습니다.".format(차감횟수), color=0xE7FB00)
