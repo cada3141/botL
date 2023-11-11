@@ -44,6 +44,23 @@ client = aclient()
 tree =  app_commands.CommandTree(client)
 server = JavaServer.lookup("mineplanet.kr")
 
+@tasks.loop(seconds=1)
+async def every_write_forum():
+    dt = datetime.now()
+    
+    # 아침 9시 5분이면 실행
+    if (dt.hour == 18 or dt.hour == 22 or dt.hour ==5):
+        channel = await client.fetch_channel("{}".format(1171070937928581223))
+        await channel.send("<@$1172960706895810691>\n낚시 대회가 시작되었습니다.")
+    # 1초 쉼
+    await asyncio.sleep(1)
+
+    if (dt.hour == 3 and dt.min == 20):
+        channel = await client.fetch_channel("{}".format(1171070937928581223))
+        await channel.send("<@$1172960706895810691>\n낚시 대회가 시작되었습니다.")
+    # 1초 쉼
+    await asyncio.sleep(1)
+    
 @tree.command(name='서버상태',description='마인플래닛의 정보를 알려줍니다.') #서버 상태 확인
 async def 서버상태(interaction: discord.Interaction):
     try:                
@@ -53,11 +70,11 @@ async def 서버상태(interaction: discord.Interaction):
     except:
         await interaction.response.send_message("서버에 접속할 수 없습니다.")
 
-@tree.command(name='시간',description='디버그용임') #서버 상태 확인
-async def 시간(interaction: discord.Interaction):
-    dt = datetime.datetime.now()
-    year = dt.year
-    await interaction.response.send_message(dt,ephemeral=True)
+# @tree.command(name='시간',description='디버그용임') #서버 상태 확인
+# async def 시간(interaction: discord.Interaction):
+#     dt = datetime.datetime.now()
+#     year = dt.year
+#     await interaction.response.send_message(dt,ephemeral=True)
         
 @tree.command(name = '경고', description='유저에게 경고를 부여합니다.')
 async def warning(interaction: discord.Interaction, 유저: discord.Member, reason: str): 
@@ -257,29 +274,29 @@ async def slash2(interaction: discord.Interaction, 숫자: int, 숫자2: int):
     
 
 
-@tree.command(name='낚시대회',description='낚시대회에 관한 정보를 알려줍니다.') #낚대 상황
-async def 낚시대회(interaction: discord.Interaction):
-   now = datetime.now()
-   if datetime.today().weekday() % 2 == 0:
-        if now.hour+9 < 16:
-           await interaction.response.send_message("아직 낚시대회가 시작하지 않았습니다.(시작시간: 6시)")
+# @tree.command(name='낚시대회',description='낚시대회에 관한 정보를 알려줍니다.') #낚대 상황
+# async def 낚시대회(interaction: discord.Interaction):
+#    now = datetime.now()
+#    if datetime.today().weekday() % 2 == 0:
+#         if now.hour+9 < 16:
+#            await interaction.response.send_message("아직 낚시대회가 시작하지 않았습니다.(시작시간: 6시)")
         
-        elif now.hour+9 == 16:
-           await interaction.response.send_message("현재 낚시대회가 진행중입니다!")
+#         elif now.hour+9 == 16:
+#            await interaction.response.send_message("현재 낚시대회가 진행중입니다!")
 
-        else:
-           await interaction.response.send_message("오늘의 낚시대회는 종료되었습니다.(시작시간: 6시)")
+#         else:
+#            await interaction.response.send_message("오늘의 낚시대회는 종료되었습니다.(시작시간: 6시)")
            
 
-   else:
-        if now.hour+9 < 20:
-           await interaction.response.send_message("아직 낚시대회가 시작하지 않았습니다.(시작시간: 10시)")
+#    else:
+#         if now.hour+9 < 20:
+#            await interaction.response.send_message("아직 낚시대회가 시작하지 않았습니다.(시작시간: 10시)")
         
-        elif now.hour+9 == 20:
-           await interaction.response.send_message("현재 낚시대회가 진행중입니다!")
+#         elif now.hour+9 == 20:
+#            await interaction.response.send_message("현재 낚시대회가 진행중입니다!")
 
-        else:
-           await interaction.response.send_message("오늘의 낚시대회는 종료되었습니다.(시작시간: 10시)")
+#         else:
+#            await interaction.response.send_message("오늘의 낚시대회는 종료되었습니다.(시작시간: 10시)")
 
 
 
