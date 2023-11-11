@@ -257,29 +257,29 @@ async def slash2(interaction: discord.Interaction, 숫자: int, 숫자2: int):
     
 
 
-# @tree.command(name='낚시대회',description='낚시대회에 관한 정보를 알려줍니다.') #낚대 상황
-# async def 낚시대회(interaction: discord.Interaction):
-#    now = datetime.now()
-#    if datetime.today().weekday() % 2 == 0:
-#         if now.hour+9 < 16:
-#            await interaction.response.send_message("아직 낚시대회가 시작하지 않았습니다.(시작시간: 4시)")
+@tree.command(name='낚시대회',description='낚시대회에 관한 정보를 알려줍니다.') #낚대 상황
+async def 낚시대회(interaction: discord.Interaction):
+   now = datetime.now()
+   if datetime.today().weekday() % 2 == 0:
+        if now.hour+9 < 16:
+           await interaction.response.send_message("아직 낚시대회가 시작하지 않았습니다.(시작시간: 6시)")
         
-#         elif now.hour+9 == 16:
-#            await interaction.response.send_message("현재 낚시대회가 진행중입니다!")
+        elif now.hour+9 == 16:
+           await interaction.response.send_message("현재 낚시대회가 진행중입니다!")
 
-#         else:
-#            await interaction.response.send_message("오늘의 낚시대회는 종료되었습니다.(시작시간: 4시)")
+        else:
+           await interaction.response.send_message("오늘의 낚시대회는 종료되었습니다.(시작시간: 6시)")
            
 
-#    else:
-#         if now.hour+9 < 20:
-#            await interaction.response.send_message("아직 낚시대회가 시작하지 않았습니다.(시작시간: 8시)")
+   else:
+        if now.hour+9 < 20:
+           await interaction.response.send_message("아직 낚시대회가 시작하지 않았습니다.(시작시간: 10시)")
         
-#         elif now.hour+9 == 20:
-#            await interaction.response.send_message("현재 낚시대회가 진행중입니다!")
+        elif now.hour+9 == 20:
+           await interaction.response.send_message("현재 낚시대회가 진행중입니다!")
 
-#         else:
-#            await interaction.response.send_message("오늘의 낚시대회는 종료되었습니다.(시작시간: 8시)")
+        else:
+           await interaction.response.send_message("오늘의 낚시대회는 종료되었습니다.(시작시간: 10시)")
 
 
 
