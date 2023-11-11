@@ -49,15 +49,15 @@ async def every_write_forum():
     dt = datetime.now()
     
     # 아침 9시 5분이면 실행
-    if (dt.hour == 18 or dt.hour == 22 or dt.hour ==5):
-        channel = await client.fetch_channel("{}".format(1171070937928581223))
+    if (dt.hour + 9 == 18 or dt.hour == 22 or dt.hour ==5):
+        channel = await client.fetch_channel("{}".format(1171074136479649903))
         await channel.send("<@$1172960706895810691>\n낚시 대회가 시작되었습니다.")
     # 1초 쉼
     await asyncio.sleep(1)
 
-    if (dt.hour == 3 and dt.min == 20):
-        channel = await client.fetch_channel("{}".format(1171070937928581223))
-        await channel.send("<@$1172960706895810691>\n낚시 대회가 시작되었습니다.")
+    if (dt.hour == 3  + 9 and dt.min == 23):
+        channel = await client.fetch_channel("{}".format(1171074136479649903))
+        await channel.send("<@$1172960706895810691>\ntest")
     # 1초 쉼
     await asyncio.sleep(1)
     
