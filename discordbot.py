@@ -53,6 +53,12 @@ async def 서버상태(interaction: discord.Interaction):
     except:
         await interaction.response.send_message("서버에 접속할 수 없습니다.")
 
+@tree.command(name='시간',description='디버그용임') #서버 상태 확인
+async def 시간(interaction: discord.Interaction):
+    dt = datetime.datetime.now()
+    year = dt.year
+    await interaction.response.send_message(dt,ephemeral=True)
+        
 @tree.command(name = '경고', description='유저에게 경고를 부여합니다.')
 async def warning(interaction: discord.Interaction, 유저: discord.Member, reason: str): 
     if interaction.user.guild_permissions.administrator:
